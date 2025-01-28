@@ -101,6 +101,9 @@ export class FileManager {
                 return folder_decks[folder.path]
             }
         }
+        if (this.data.path_to_deck) {
+            return file.path.slice(0, -3).replaceAll("/", "::")
+        }
         // If no decks specified
         return this.data.template.deckName
     }

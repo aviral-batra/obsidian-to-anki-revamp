@@ -11,7 +11,8 @@ const defaultDescs = {
 	"CurlyCloze": "Convert {cloze deletions} -> {{c1::cloze deletions}} on note types that have a 'Cloze' in their name.",
 	"CurlyCloze - Highlights to Clozes": "Convert ==highlights== -> {highlights} to be processed by CurlyCloze.",
 	"ID Comments": "Wrap note IDs in a HTML comment.",
-	"Add Obsidian Tags": "Interpret #tags in the fields of a note as Anki tags, removing them from the note text in Anki."
+	"Add Obsidian Tags": "Interpret #tags in the fields of a note as Anki tags, removing them from the note text in Anki.",
+	"Turn Path into Deck": "If no note deck specified, automatically turn path into deck"
 }
 
 export const DEFAULT_IGNORED_FILE_GLOBS = [
