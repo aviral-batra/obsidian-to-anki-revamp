@@ -198,6 +198,9 @@ export class SettingsTab extends PluginSettingTab {
 		if (!(plugin.settings["Defaults"].hasOwnProperty("Add Obsidian Tags"))) {
 			plugin.settings["Defaults"]["Add Obsidian Tags"] = false
 		}
+		if (!(plugin.settings["Defaults"].hasOwnProperty("Turn Path into Deck"))) {
+			plugin.settings["Defaults"]["Turn Path into Deck"] = false
+		}
 		if (!(plugin.settings["Defaults"].hasOwnProperty("Rescan Error Throwing Files"))) {
 			plugin.settings["Defaults"]["Rescan Error Throwing Files"] = false
 		}
