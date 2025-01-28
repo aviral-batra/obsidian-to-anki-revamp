@@ -100,7 +100,8 @@ abstract class AbstractNote {
 		if (data.add_obs_tags) {
 			for (let key in template["fields"]) {
 				for (let match of template["fields"][key].matchAll(OBS_TAG_REGEXP)) {
-					this.tags.push(match[1])
+					let formattedTag = match[1].replace(/\//g, "::");
+                    this.tags.push(formattedTag)
 				}
 				template["fields"][key] = template["fields"][key].replace(OBS_TAG_REGEXP, "")
 	        }
@@ -305,7 +306,8 @@ export class RegexNote {
 		if (data.add_obs_tags) {
 			for (let key in template["fields"]) {
 				for (let match of template["fields"][key].matchAll(OBS_TAG_REGEXP)) {
-					this.tags.push(match[1])
+					let formattedTag = match[1].replace(/\//g, "::");
+                    this.tags.push(formattedTag)
 				}
 				template["fields"][key] = template["fields"][key].replace(OBS_TAG_REGEXP, "")
 	        }
