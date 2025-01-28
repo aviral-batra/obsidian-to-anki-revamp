@@ -44,6 +44,7 @@ export async function settingToData(app: App, settings: PluginSettings, fields_d
     result.add_obs_tags = settings.Defaults["Add Obsidian Tags"]
     result.ignored_file_globs = settings.IGNORED_FILE_GLOBS ?? [];
     result.path_to_deck = settings.Defaults["Turn Path into Deck"]
+    result.rescan_error_files = settings.Defaults["Rescan Error Throwing Files"]
 
     return result
 }

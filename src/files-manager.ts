@@ -56,6 +56,7 @@ export class FileManager {
     data: ParsedSettings
     files: TFile[]
     ownFiles: Array<AllFile>
+    errorFilePaths: string[]
     file_hashes: Record<string, string>
     requests_1_result: any
     added_media_set: Set<string>
@@ -65,6 +66,7 @@ export class FileManager {
         this.data = data
 
         this.files = this.findFilesThatAreNotIgnored(files, data);
+        this.errorFilePaths = []
 
         this.ownFiles = []
         this.file_hashes = file_hashes
@@ -143,6 +145,7 @@ export class FileManager {
             const file_data = this.dataToFileData(file)
             this.ownFiles.push(
                 new AllFile(
+                    this,
                     content,
                     file.path,
                     this.data.add_file_link ? this.getUrl(file) : "",
@@ -269,6 +272,7 @@ export class FileManager {
                 } catch (error) {
                     console.warn("Failed to add note ", file.all_notes_to_add[i], " in file", file.path, " due to error ", error)
                     file.note_ids.push(response.result)
+                    this.errorFilePaths.push(file.path)
                 }
             }
         }

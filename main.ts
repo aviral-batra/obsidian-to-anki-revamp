@@ -42,7 +42,8 @@ export default class MyPlugin extends Plugin {
 				"CurlyCloze - Highlights to Clozes": false,
 				"ID Comments": true,
 				"Add Obsidian Tags": false,
-				"Turn Path into Deck": false
+				"Turn Path into Deck": false,
+				"Rescan Error Throwing Files": true
 			},
 			IGNORED_FILE_GLOBS: DEFAULT_IGNORED_FILE_GLOBS,
 		}
@@ -219,6 +220,12 @@ export default class MyPlugin extends Plugin {
 		for (let key in hashes) {
 			this.file_hashes[key] = hashes[key]
 		}
+		if (this.settings.Defaults['Rescan Error Throwing Files']) {
+			for (let errorPath of manager.errorFilePaths) {
+				delete this.file_hashes[errorPath]
+			}
+		}
+		
 		new Notice("All done! Saving file hashes and added media now...")
 		this.saveAllData()
 	}
